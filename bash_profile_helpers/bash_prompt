@@ -20,7 +20,7 @@ prompt_command () {
     local DEFAULT="\[\033[0;39m\]"
     # set the titlebar to the last 2 fields of pwd
     local TITLEBAR='\[\e]2;`pwdtail`\a'
-    export PS1="\n\[${TITLEBAR}\]${CYAN}[ ${BCYAN}\u@${BCYAN}\
+    export PS1="\n\[${TITLEBAR}\]${CYAN}[ \u@\
 \h ${CYAN}] ${GRAY}\
 \w\n${GREEN}${BRANCH}${DEFAULT}$ "
 }
