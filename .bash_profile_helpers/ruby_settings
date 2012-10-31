@@ -1,0 +1,2 @@
+export RUBYLIB=$RUBYLIB:.
+export RUBYOPT=-Itest

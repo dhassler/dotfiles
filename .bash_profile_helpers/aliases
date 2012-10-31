@@ -1,0 +1,5 @@
+alias c="clear"
+alias fs="foreman start"
+alias m="mate"
+alias private_firefox="/Applications/Firefox.app/Contents/MacOS/firefox -P Private -private"
+alias r="rails"
