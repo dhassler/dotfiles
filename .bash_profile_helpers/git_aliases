@@ -10,5 +10,5 @@ alias g="git"
 alias grm="git rebase -i upstream/master"
 alias git-mru="git for-each-ref --format='%(authordate:relative)%09%(refname:short)%0a%(subject)%0a' --sort=-committerdate refs/heads"
 
-[[ -s "$HOME/bin/git-completion.sh"]] && source ~/bin/git-completion.sh
+[[ -s "$HOME/bin/git-completion.sh" ]] && source ~/bin/git-completion.sh
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
