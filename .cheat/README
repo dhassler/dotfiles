@@ -1,0 +1,10 @@
+Git repo:
+
+    git@github.com:chrisallenlane/cheat.git
+
+
+# Install
+    mkdir -p ~/bin
+    cp cheat ~/bin
+    mkdir ~/.cheat
+    cp cheatsheets/* ~/.cheat
