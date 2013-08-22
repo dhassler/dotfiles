@@ -1,0 +1,7 @@
+To search all travel XML files:
+
+  @source: *travel* AND  xml: *
+
+From switchfly:
+
+  @source: *travel* AND  from: switchfly
