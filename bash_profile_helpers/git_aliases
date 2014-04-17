@@ -3,7 +3,7 @@ function push() {
     git push origin $branch $@
 }
 
-alias gfa="git fetch --all"
+alias gfa="git fetch --all --prune"
 alias gso="git commit --amend --signoff"
 alias gm="git merge --ff-only "
 alias g="git"
