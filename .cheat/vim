@@ -1,0 +1,2 @@
+Copy current line to paste buffer:
+    :.w !pbcopy
