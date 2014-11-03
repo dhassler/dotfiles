@@ -5,7 +5,7 @@ source ~/.bash_profile_helpers/git_aliases
 source ~/.bash_profile_helpers/git_autocomplete
 source ~/.bash_profile_helpers/aliases
 source ~/.bash_profile_helpers/vim_clojure
-source ~/.bash_profile_helpers/rvm
+source ~/.bash_profile_helpers/rbenv
 source ~/.bash_profile_helpers/path
 
 [ -f "$HOME/.bash_custom" ] && source "$HOME/.bash_custom"
