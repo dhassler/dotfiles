@@ -1,5 +1,11 @@
 # tmux shortcuts & cheatsheet
 
+copy/paste:
+
+   v to enter visual mode
+   y to yank
+   p to put
+
 start new:
 
     tmux
