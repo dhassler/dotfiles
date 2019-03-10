@@ -4,3 +4,11 @@ alias sfs="STEPFORD_LOCAL=true bundle exec foreman start"
 alias m="mate"
 alias private_firefox="/Applications/Firefox.app/Contents/MacOS/firefox -P Private -private"
 alias r="rails"
+
+# Convert simplified wildcard pattern to regex and grep a file listing using
+# Silver Searcher (`brew install the_silver_searcher`)
+lsgrep ()
+{
+    NEEDLE="$(echo $@|sed -E 's/\.([a-z0-9]+)$/\\.\1/'|sed -E 's/\?/./'| sed -E 's/[ *]/.*?/g')";
+    ag --depth 9 -S -g "$NEEDLE" 2> /dev/null
+}
