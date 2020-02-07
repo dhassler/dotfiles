@@ -12,3 +12,4 @@ lsgrep ()
     NEEDLE="$(echo $@|sed -E 's/\.([a-z0-9]+)$/\\.\1/'|sed -E 's/\?/./'| sed -E 's/[ *]/.*?/g')";
     ag --depth 9 -S -g "$NEEDLE" 2> /dev/null
 }
+alias ag='ag --path-to-ignore ~/.ignore'
