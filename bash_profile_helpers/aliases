@@ -13,3 +13,6 @@ lsgrep ()
     ag --depth 9 -S -g "$NEEDLE" 2> /dev/null
 }
 alias ag='ag --path-to-ignore ~/.ignore'
+alias api="cd ~/dev/pa/paapi; source .venv/bin/activate"
+alias ebdev="eb use pa-api-dev-env"
+alias ebprod="eb use pa-api-prod"
