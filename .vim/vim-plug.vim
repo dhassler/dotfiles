@@ -21,7 +21,7 @@ Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'alvan/vim-closetag'
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdcommenter'
-Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
 
 call plug#end()
 
