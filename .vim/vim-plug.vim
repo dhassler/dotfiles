@@ -19,6 +19,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'alvan/vim-closetag'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdcommenter'
 Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }

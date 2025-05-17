@@ -180,8 +180,6 @@ endfunction
 
 map <C-Left> :call TabMove(1)<CR>
 map <C-Right> :call TabMove(0)<CR>
-" map <C-p> :call TabMove(1)<CR>
-" map <C-n> :call TabMove(0)<CR>
 
 """ Clojure bindings
 " map ,T :w<CR>:Require<CR>:call fireplace#echo_session_eval("(run-all-tests)")<CR>
@@ -191,3 +189,6 @@ map <C-Right> :call TabMove(0)<CR>
 
 
 autocmd FileType lisp,scheme,clojure RainbowParentheses
+
+" fzf mappings
+nnoremap <C-p> :GFiles<Cr>

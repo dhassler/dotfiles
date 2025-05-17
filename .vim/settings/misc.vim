@@ -1,13 +1,9 @@
-""" ctags, ctrlp, NERDTree refresh
+""" ctags, fzf, NERDTree refresh
 
 function Refresh()
   echo "refreshing tags and files..."
 
   silent !if [ -d .git ]; then git ls-files -c -o --exclude-standard | ctags -L -; else ctags -R; fi
-
-  if exists(":CtrlPClearAllCaches") == 2
-    CtrlPClearAllCaches
-  endif
 
   if exists("t:NERDTreeBufName")
     let nr = bufwinnr(t:NERDTreeBufName)
@@ -22,7 +18,7 @@ endfunction
 map <silent> <Leader>r :call Refresh()<CR>
 
 
-""" ctrl-p exclusions
+""" fzf exclusions
 set wildignore+=*/vendor/*,tags,*/gen-java/*
 
 
