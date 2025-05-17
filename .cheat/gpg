@@ -1,7 +1,0 @@
-Decrypting a file from someone else
-
-If someone sends you an encrypted file, the file has typically been encrypted
-using your public key. Decrypting it is no different than decrypting a file
-you’ve encrypted for your own use.
-
-  gpg --output foo.txt --decrypt foo.txt.gpg

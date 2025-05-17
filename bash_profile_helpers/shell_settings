@@ -1,4 +1,0 @@
-export HISTSIZE=10000
-export EDITOR=vi
-set -o vi
-source /Users/dhassler/Library/Preferences/org.dystroy.broot/launcher/bash/br
