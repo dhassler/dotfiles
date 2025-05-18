@@ -1,6 +1,6 @@
 set t_Co=256
 if has("gui")
-  colorscheme Tomorrow-Night
+  colorscheme gruvbox
 else
-  colorscheme Tomorrow-Night
+  colorscheme gruvbox
 endif

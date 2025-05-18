@@ -23,6 +23,8 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdcommenter'
 Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
+Plug 'morhetz/gruvbox'
+Plug 'webastien/vim-ctags'
 
 call plug#end()
 

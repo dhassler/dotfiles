@@ -1,16 +1,25 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/base.toml)"
 
+# Packages
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
+
+zinit light marlonrichert/zsh-autocomplete
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light jeffreytse/zsh-vi-mode
+
 # Keybindings and plugins
 bindkey -v
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 bindkey '^I'   complete-word       # tab          | complete
 bindkey '^[[Z' autosuggest-accept  # shift + tab  | autosuggest
 
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
@@ -22,8 +31,6 @@ if type brew &>/dev/null; then
   autoload -Uz compinit
   compinit
 fi
-
-
 
 # Aliases
 alias ls='ls --color'
@@ -55,7 +62,6 @@ setopt hist_find_no_dups
 # Programs
 source <(fzf --zsh)
 
-source /opt/homebrew/opt/zinit/zinit.zsh
 zinit light Aloxaf/fzf-tab
 zinit snippet OMZP::git # https://kapeli.com/cheat_sheets/Oh-My-Zsh_Git.docset/Contents/Resources/Documents/index
 zinit snippet OMZP::sudo
@@ -63,9 +69,6 @@ zinit snippet OMZP::aws
 zinit snippet OMZP::command-not-found
 
 zinit cdreplay -q
-
-# vi mode
-source /opt/homebrew/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 # switch to command mode with cmd-j
 bindkey '^j' vi-cmd-mode
