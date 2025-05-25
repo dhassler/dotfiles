@@ -25,6 +25,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
 Plug 'morhetz/gruvbox'
 Plug 'webastien/vim-ctags'
+Plug 'github/copilot.vim'
 
 call plug#end()
 
