@@ -41,4 +41,16 @@ function! ToggleCalendar()
 endfunction
 :autocmd FileType vimwiki map <Leader>c :call ToggleCalendar()
 
-set clipboard=unnamed
+" Remove default clipboard integration
+" set clipboard=unnamed
+
+" Keybindings for system clipboard
+" Copy to system clipboard
+vnoremap <Leader>y "+y
+nnoremap <Leader>y "+yy
+
+" Paste from system clipboard
+nnoremap <Leader>p "+p
+nnoremap <Leader>P "+P
+vnoremap <Leader>p "+p
+vnoremap <Leader>P "+P
