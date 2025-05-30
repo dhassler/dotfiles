@@ -7,10 +7,6 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
 
-zinit light marlonrichert/zsh-autocomplete
-zinit light zsh-users/zsh-autosuggestions
-zinit light zsh-users/zsh-syntax-highlighting
-zinit light jeffreytse/zsh-vi-mode
 
 # Keybindings and plugins
 bindkey -v
@@ -24,6 +20,25 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+# disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+# set descriptions format to enable group support
+# NOTE: don't use escape sequences (like '%F{red}%d%f') here, fzf-tab will ignore them
+zstyle ':completion:*:descriptions' format '[%d]'
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
+zstyle ':completion:*' menu no
+# preview directory's content with eza when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+# custom fzf flags
+# NOTE: fzf-tab does not follow FZF_DEFAULT_OPTS by default
+zstyle ':fzf-tab:*' fzf-flags --color=fg:1,fg+:2 --bind=tab:accept
+# To make fzf-tab follow FZF_DEFAULT_OPTS.
+# NOTE: This may lead to unexpected behavior since some flags break this plugin. See Aloxaf/fzf-tab#455.
+zstyle ':fzf-tab:*' use-fzf-default-opts yes
+# switch group using `<` and `>`
+zstyle ':fzf-tab:*' switch-group '<' '>'
 
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
@@ -31,6 +46,15 @@ if type brew &>/dev/null; then
   autoload -Uz compinit
   compinit
 fi
+
+zinit light Aloxaf/fzf-tab
+#zinit light marlonrichert/zsh-autocomplete
+#zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light jeffreytse/zsh-vi-mode
+# zsh-fzf-history-search
+zinit ice lucid wait'0'
+zinit light joshskidmore/zsh-fzf-history-search
 
 # Aliases
 alias ls='ls --color'
@@ -62,7 +86,6 @@ setopt hist_find_no_dups
 # Programs
 source <(fzf --zsh)
 
-zinit light Aloxaf/fzf-tab
 zinit snippet OMZP::git # https://kapeli.com/cheat_sheets/Oh-My-Zsh_Git.docset/Contents/Resources/Documents/index
 zinit snippet OMZP::sudo
 zinit snippet OMZP::aws
@@ -103,3 +126,4 @@ bindkey -M viins '^R' history-incremental-pattern-search-backward
 bindkey -M viins '^F' history-incremental-pattern-search-forward
 
 eval "$(zoxide init --cmd cd zsh)"
+source ~/.bash_custom
