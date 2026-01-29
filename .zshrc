@@ -43,8 +43,13 @@ zstyle ':fzf-tab:*' switch-group '<' '>'
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 
+  # Smarter completion initialization
   autoload -Uz compinit
-  compinit
+  if [ "$(date +'%j')" != "$(stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)" ]; then
+      compinit
+  else
+      compinit -C
+  fi
 fi
 
 zinit light Aloxaf/fzf-tab
@@ -127,3 +132,9 @@ bindkey -M viins '^F' history-incremental-pattern-search-forward
 
 eval "$(zoxide init --cmd cd zsh)"
 source ~/.bash_custom
+
+export PATH=$PATH:~/dev/flutter/bin
+
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+export PATH="$HOME/.local/bin:$PATH"
