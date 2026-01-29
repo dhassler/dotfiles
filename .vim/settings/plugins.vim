@@ -103,3 +103,11 @@ end
 " detect filetype if vim failed auto-detection.
 let g:gist_detect_filetype = 1
 
+
+""" coc.nvim
+" GoTo code navigation
+nmap <silent><nowait> gd <Plug>(coc-definition)
+nmap <silent><nowait> gy <Plug>(coc-type-definition)
+nmap <silent><nowait> gi <Plug>(coc-implementation)
+nmap <silent><nowait> gr <Plug>(coc-references)
+

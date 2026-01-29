@@ -25,7 +25,9 @@ Plug 'preservim/nerdcommenter'
 Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
 Plug 'morhetz/gruvbox'
 Plug 'webastien/vim-ctags'
-Plug 'github/copilot.vim'
+"Plug 'github/copilot.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 
 call plug#end()
 
