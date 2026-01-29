@@ -1,9 +1,12 @@
 [user]
-  name = Name
-  email = Email
+        name = David 
+        email = 
 
 [credential]
-	helper = !aws codecommit credential-helper $@
+        helper = !aws codecommit credential-helper $@
+
+[pretty]
+        better-oneline = "format:%ad %C(auto)%h%d %s %Cblue[%cn]"    
 
 # clearly makes git better
 
@@ -44,3 +47,14 @@
         autoSquash = true
         autoStash = true
         updateRefs = true
+
+[alias]
+       cp  = cherry-pick
+       cpa = cherry-pick --abort
+       cpc = cherry-pick --continue
+       co  = checkout
+       ls      = log --pretty=better-oneline --date=short
+       ll      = log --pretty=better-oneline --numstat --date=short
+       details = "!f() { git ll "$1"^.."$1"; }; f"
+       branches = branch -a
+       tags     = tag
